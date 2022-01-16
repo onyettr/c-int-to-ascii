@@ -43,7 +43,7 @@ LFLAGS			= 	$(PFLAGS) -static -L.
 
 CODE_CHECK				= 	cppcheck
 CODE_CHECK_ARGS		= 	--enable=all
-
+CHECK_FOR_CHECKCPP:= 	$(shell command -v $(CODE_CHECK) 2> /dev/null)
 # codespell
 CODE_SPELL				= 	codespell
 CODE_SPELL_ARGS		= 	--skip "*.a,*.o,*.exe,./.git"
@@ -80,7 +80,11 @@ $(OBJECT_DIR)/inttoascii.o:		inttoascii.c
 # Code checking target
 #
 splint-it:
+ifndef CHECK_FOR_CHECKCPP
+			@echo "** cppcheck was not found **"
+else
 			$(CODE_CHECK) $(CODE_CHECK_ARGS) inttoascii.c
+endif
 
 spelling-bee:
 ifndef CHECK_FOR_CODESPELL

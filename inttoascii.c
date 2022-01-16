@@ -15,7 +15,7 @@
 
 /**
  * @fn uint32_t number_of_digits(uint32_t int_value) {
- * @brief find the number of digits in teh integer
+ * @brief find the number of digits in the integer
  * @param int_value
  * @return
  */
