@@ -2,6 +2,8 @@
  * @file inttoascii.c
  * @author onyettr
  * @brief function to convert an integer to ASCII characters
+ *        Assumes 32-bit integer for sake of example
+ *        s(n)printf() would be easier....
  */
 #include <stdio.h>
 #include <stdlib.h>
@@ -12,7 +14,8 @@
 #define DIM(X) (sizeof(X) / sizeof(uint32_t))
 
 /**
- *
+ * @fn uint32_t number_of_digits(uint32_t int_value) {
+ * @brief find the number of digits in teh integer
  * @param int_value
  * @return
  */
@@ -20,7 +23,6 @@ uint32_t number_of_digits(uint32_t int_value) {
   uint32_t count = 0;
 
   while (int_value) {
-//	printf("%0x\n", int_value);
     ++count;
     int_value = int_value >> 4;
   }
@@ -32,13 +34,14 @@ uint32_t number_of_digits(uint32_t int_value) {
  * @fn 	char *inttoascii(uint32_t int_value)
  * @param[in] int_value
  * @return
+ * @note could use the number of digits and get fancy with printing
  */
 char *inttoascii(uint32_t int_value)
 {
 
 	static char hex_value[MAX_SIZE+1];
     char *p = (char *)&hex_value[MAX_SIZE];
-    uint32_t number = number_of_digits(int_value);
+ //   uint32_t number = number_of_digits(int_value);
 
     memset((char*)&hex_value[0], ' ', MAX_SIZE);
     hex_value[MAX_SIZE]= '\0';
