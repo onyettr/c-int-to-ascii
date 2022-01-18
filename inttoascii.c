@@ -13,6 +13,7 @@
 #define MAX_SIZE (sizeof(uint32_t)*2)
 #define DIM(X) (sizeof(X) / sizeof(uint32_t))
 
+#if 0
 /**
  * @fn uint32_t number_of_digits(uint32_t int_value) {
  * @brief find the number of digits in the integer
@@ -29,6 +30,7 @@ uint32_t number_of_digits(uint32_t int_value) {
 
   return count;
 }
+#endif
 
 /**
  * @fn 	char *inttoascii(uint32_t int_value)
