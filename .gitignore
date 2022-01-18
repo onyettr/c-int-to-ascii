@@ -1,0 +1,5 @@
+*.exe
+.cproject
+.project
+object/*
+.settings/*
